@@ -7,14 +7,15 @@ import {
   getFirestore as getFirestoreInstance
 } from 'firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Constants from 'expo-constants';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD1VXUU7vobOI4IUJeWR2P8QEHsR_8nMd0",
-  authDomain: "bhayi-e04ef.firebaseapp.com",
-  projectId: "bhayi-e04ef",
-  storageBucket: "bhayi-e04ef.firebasestorage.app",
-  messagingSenderId: "917185980343",
-  appId: "1:917185980343:web:YOUR_WEB_APP_ID"
+  apiKey: Constants.expoConfig?.extra?.FIREBASE_API_KEY || process.env.FIREBASE_API_KEY,
+  authDomain: Constants.expoConfig?.extra?.FIREBASE_AUTH_DOMAIN || process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: Constants.expoConfig?.extra?.FIREBASE_PROJECT_ID || process.env.FIREBASE_PROJECT_ID,
+  storageBucket: Constants.expoConfig?.extra?.FIREBASE_STORAGE_BUCKET || process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: Constants.expoConfig?.extra?.FIREBASE_MESSAGING_SENDER_ID || process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: Constants.expoConfig?.extra?.FIREBASE_APP_ID || process.env.FIREBASE_APP_ID
 };
 
 // Initialize Firebase - prevent duplicate initialization during hot reloads
