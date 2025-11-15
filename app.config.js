@@ -22,6 +22,19 @@ export default {
     web: {
       favicon: "./assets/favicon.png"
     },
+    plugins: [
+      [
+        "expo-build-properties",
+        {
+          android: {
+            compileSdkVersion: 34,
+            targetSdkVersion: 34,
+            buildToolsVersion: "34.0.0",
+            minSdkVersion: 21
+          }
+        }
+      ]
+    ],
     extra: {
       FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
       FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
